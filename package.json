@@ -1,19 +1,29 @@
 {
   "name": "pad-filenames",
-  "version": "1.0.0",
   "description": "Adds zeroes in front of short filenames to remove sorting problems",
   "main": "index.js",
+  "version": "0.0.0-semantic-release",
   "scripts": {
     "test": "npm run unit",
     "commit": "commit-wizard",
-    "lint": "standard --verbose index.js src/*.js",
-    "format": "standard-format -w index.js src/*.js",
+    "lint": "standard --verbose bin/*.js src/*.js",
+    "format": "standard-format -w bin/*.js src/*.js",
     "pretest": "npm run format && npm run lint",
-    "unit": "mocha src/*-spec.js"
+    "unit": "mocha src/*-spec.js",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "size": "t=\"$(npm pack .)\"; wc -c \"${t}\"; tar tvf \"${t}\"; rm \"${t}\";"
   },
+  "bin": {
+    "pad": "bin/pad.js"
+  },
+  "files": [
+    "bin",
+    "src/*.js",
+    "!src/*-spec.js"
+  ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bahmutov/pad-filenames.git"
+    "url": "https://github.com/bahmutov/pad-filenames.git"
   },
   "keywords": [
     "pad",
@@ -36,8 +46,10 @@
   "config": {
     "pre-git": {
       "commit-msg": "simple",
-      "pre-commit": ["npm test"],
-      "pre-push": [],
+      "pre-commit": [
+        "npm test"
+      ],
+      "pre-push": ["npm run size"],
       "post-commit": [],
       "post-merge": []
     }
@@ -46,6 +58,7 @@
     "mocha": "^2.4.5",
     "pre-git": "^3.4.1",
     "standard": "^6.0.7",
-    "standard-format": "^2.1.1"
+    "standard-format": "^2.1.1",
+    "semantic-release": "^4.3.5"
   }
 }

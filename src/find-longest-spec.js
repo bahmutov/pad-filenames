@@ -14,6 +14,12 @@ describe('find longest', () => {
     la(longest === 'bar3', 'found longest', longest)
   })
 
+  it('handles same length', () => {
+    const list = ['foo', 'bar', 'baz']
+    const longest = find(list)
+    la(longest.length === 3, 'found longest', longest)
+  })
+
   it('handles empty list', () => {
     const longest = find([])
     la(is.not.defined(longest))
