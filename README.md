@@ -1,11 +1,30 @@
 # pad-filenames
-> Adds zeroes in front of short filenames to remove sorting problems
+> Adds zeros in front of short filenames to remove sorting problems
 
 [![NPM][pad-filenames-icon] ][pad-filenames-url]
 
 [![Build status][pad-filenames-ci-image] ][pad-filenames-ci-url]
 [![semantic-release][semantic-image] ][semantic-url]
 [![manpm](https://img.shields.io/badge/manpm-%E2%9C%93-3399ff.svg)](https://github.com/bahmutov/manpm)
+
+## install and use
+
+    npm install --global pad-filenames
+
+Imagine you have several files, for example `1.jpg, 2.jpg, ... 9.jpg, 10.jpg, 11.jpg`. Opening
+these files from a Finder or file explorer always is prone to reordering files due to sorting
+as strings. Padding them using this program solves this problem
+
+    pad *.jpg
+    # output
+    01.jpg
+    02.jpg
+    ...
+    09.jpg
+    10.jpg
+    11.jpg
+
+All filenames will be the same length and padded with zeros on the left.
 
 ### Small print
 

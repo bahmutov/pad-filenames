@@ -1,6 +1,6 @@
 {
   "name": "pad-filenames",
-  "description": "Adds zeroes in front of short filenames to remove sorting problems",
+  "description": "Adds zeros in front of short filenames to remove sorting problems",
   "main": "src/index.js",
   "version": "0.0.0-semantic-release",
   "scripts": {
@@ -13,6 +13,7 @@
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "size": "t=\"$(npm pack .)\"; wc -c \"${t}\"; tar tvf \"${t}\"; rm \"${t}\";"
   },
+  "preferGlobal": true,
   "bin": {
     "pad": "bin/pad.js"
   },
