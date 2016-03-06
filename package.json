@@ -1,0 +1,51 @@
+{
+  "name": "pad-filenames",
+  "version": "1.0.0",
+  "description": "Adds zeroes in front of short filenames to remove sorting problems",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run unit",
+    "commit": "commit-wizard",
+    "lint": "standard --verbose index.js src/*.js",
+    "format": "standard-format -w index.js src/*.js",
+    "pretest": "npm run format && npm run lint",
+    "unit": "mocha src/*-spec.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bahmutov/pad-filenames.git"
+  },
+  "keywords": [
+    "pad",
+    "utility",
+    "filename",
+    "sort",
+    "tool",
+    "cli"
+  ],
+  "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bahmutov/pad-filenames/issues"
+  },
+  "homepage": "https://github.com/bahmutov/pad-filenames#readme",
+  "dependencies": {
+    "check-more-types": "^2.10.0",
+    "lazy-ass": "^1.4.0"
+  },
+  "config": {
+    "pre-git": {
+      "commit-msg": "simple",
+      "pre-commit": ["npm test"],
+      "pre-push": [],
+      "post-commit": [],
+      "post-merge": []
+    }
+  },
+  "devDependencies": {
+    "mocha": "^2.4.5",
+    "pre-git": "^3.4.1",
+    "standard": "^6.0.7",
+    "standard-format": "^2.1.1"
+  }
+}
